@@ -10,7 +10,6 @@ const Routing = () => {
 
   // const token = localStorage.getItem("userData")
 
-  console.log(token)
   return (
     <div>{token ? <PrivateRoutes /> : <PublicRoutes />}</div>
   )

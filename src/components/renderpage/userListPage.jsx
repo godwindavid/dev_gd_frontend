@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { UserService } from '../../services/userService'
 import { Box } from '@mui/material'
-import SendIcon from "../../assets/sendIcon2.png"
+// import SendIcon from "../../assets/sendIcon2.png"
+import {ReactComponent as SendIcon} from '../../assets/icons/send.svg'
 import { io } from "socket.io-client";
 
 function UserListPage() {
@@ -48,7 +49,7 @@ function UserListPage() {
                         </div>
                         <div style={activeUser === index ? {} : { display: "none" }} className="rightpart">
                             <input onChange={handleChange} type="text" placeholder='Type message' value={message} />
-                            <img src={SendIcon} alt="" onClick={()=>handleSend({name: ele.name,message})}/>
+                            <SendIcon onClick={()=>handleSend({name: ele.name,message})}/>
                         </div>
                     </Box>
                 )) : <></>

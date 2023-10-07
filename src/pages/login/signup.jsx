@@ -5,11 +5,11 @@ import appContext from "../../appContext";
 
 
 
-const SignUpForm=() => {
-    const {setToken} = useContext(appContext)
-  const navigate = useNavigate()
+const SignUpForm = () => {
+    const { setToken } = useContext(appContext)
+    const navigate = useNavigate()
     const userService = new UserService();
-    const initialState = useMemo(() => ({  name: "",  email: "",  password: ""}), [])
+    const initialState = useMemo(() => ({ name: "", email: "", password: "" }), [])
 
     const [userData, setUserData] = React.useState(initialState);
 
@@ -21,16 +21,16 @@ const SignUpForm=() => {
         });
     };
 
-    const handleOnSubmit =async (evt) => {
+    const handleOnSubmit = async (evt) => {
         evt.preventDefault();
-        const response =await userService.signUp(userData)
+        const response = await userService.signUp(userData)
         console.log(response)
-        if(response.data){
-setToken(JSON.stringify(response.data))
+        if (response.data) {
+            setToken(JSON.stringify(response.data))
             localStorage.setItem("userData", JSON.stringify(response.data))
             navigate("/home")
         }
-        setUserData(initialState);
+        // setUserData(initialState);
     };
 
     return (
