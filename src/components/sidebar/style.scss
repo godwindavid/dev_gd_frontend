@@ -1,0 +1,40 @@
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    gap: 5px;
+    width: 20vw;
+    min-width: 200px;
+    cursor: pointer;
+    .sessions{
+        width: 100%;
+        background-color: rgb(255, 213, 185);
+        color: black;
+        font-weight: 500;
+        padding: 10px;
+        border-radius: 0 25px 25px 0;
+        position: relative;
+        overflow: hidden;
+        &:after{
+            transition: width 2s;
+            // background-color: black;
+            border-radius: 100%;
+            position: absolute;
+            right: 2px;
+            width: 0px;
+            top: 4%;
+            content: "";
+            height: 92%;
+        }
+        &.active, &:hover{
+            background-color: rgb(212, 100, 48);
+            color: white;
+            transition-timing-function: linear;
+            &:after{
+                background-color: white;
+                width: 45px;
+            }
+        }
+        
+    }
+}
